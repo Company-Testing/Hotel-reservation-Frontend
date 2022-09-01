@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from "jquery";
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-contract-input',
@@ -10,6 +12,7 @@ export class ContractInputComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

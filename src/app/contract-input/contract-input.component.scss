@@ -1,0 +1,19 @@
+.contract-input-form {
+  min-width: 150px;
+  max-width: 100%;
+  margin: 15px;
+}
+
+#contract-data mat-form-field{
+  display: flex;
+  flex-direction: column;
+}
+
+.contract-input-field {
+  width: 100%;
+}
+
+#button-section button{
+  width: 165px;
+  height: 40px;
+}

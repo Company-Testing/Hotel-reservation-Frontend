@@ -1,2 +1,58 @@
-<h1>Create the forum to collect all the contract information</h1>
+<form class="contract-input-form">
+
+  <div class="flex item-center gap-4 cursor-pointer">
+    <mat-form-field class="contract-input-field" appearance="fill">
+      <mat-label>Contract Id</mat-label>
+      <input matInput value="CON001">
+    </mat-form-field>
+
+    <!--<mat-form-field class="contract-input-field" appearance="fill">
+      <mat-label>Makeup Value</mat-label>
+      <textarea matInput placeholder="Ex. 25%"></textarea>
+    </mat-form-field>-->
+
+    <mat-form-field class="contract-input-field" appearance="fill">
+      <mat-label>Makeup Value</mat-label>
+      <input matInput placeholder="Ex. 25%">
+    </mat-form-field>
+  </div>
+
+
+  <div class="flex justify-between ">
+
+    <div class="flex  gap-4">
+      <mat-form-field  color="accent" appearance="fill">
+        <mat-label >Contract Starting Date</mat-label>
+        <input  matInput [matDatepicker]="picker1">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Contract Ending Date</mat-label>
+        <input matInput [matDatepicker]="picker2">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 color="primary"></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div id="button-section">
+      <button class="text-lg" mat-raised-button color="primary">Create Contract</button>
+    </div>
+
+
+
+  </div>
+
+
+
+</form>
+
+
+
+
+
+
 
