@@ -14,7 +14,7 @@ export class ContractInputComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addContract(contractId: HTMLInputElement, markupValue: HTMLInputElement, startingDate: MatDatepicker<any>, endingDate: MatDatepicker<any>){
+  addContract(contractId: HTMLInputElement,hotelId: HTMLInputElement,  markupValue: HTMLInputElement, startingDate: MatDatepicker<any>, endingDate: MatDatepicker<any>){
     /*console.log(contractId.value);
     console.log(markupValue.value);
     let contractStarter = startingDate.datepickerInput.getStartValue();
@@ -26,7 +26,7 @@ export class ContractInputComponent implements OnInit {
     console.log("Starting date Month: "+(contractEnder?.getMonth()));
     console.log("Starting date Date: "+contractEnder?.getDate());*/
 
-    let contract = new Contract(contractId.value, parseInt(markupValue.value), startingDate.datepickerInput, endingDate.datepickerInput)
-    console.log(contract.contractId, contract.markupValue, contract.contractStartingDate.getStartValue(), contract.contractEndingDate.getStartValue());
+    let contract = new Contract(contractId.value,hotelId.value, parseInt(markupValue.value), startingDate.datepickerInput, endingDate.datepickerInput)
+    console.log(contract.contractId,contract.hotelId, contract.markupValue, contract.contractStartingDate.getStartValue(), contract.contractEndingDate.getStartValue());
   }
 }
