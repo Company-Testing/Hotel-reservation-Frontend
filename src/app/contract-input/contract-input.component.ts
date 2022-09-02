@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDatepicker} from "@angular/material/datepicker";
+import {Contract} from "../dto/Contract";
 
 @Component({
   selector: 'app-contract-input',
@@ -13,8 +14,8 @@ export class ContractInputComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  doSomething(contractId:HTMLInputElement, markupValue:HTMLInputElement, startingDate: MatDatepicker<Date>, endingDate: MatDatepicker<Date>){
-    console.log(contractId.value);
+  addContract(contractId: HTMLInputElement, markupValue: HTMLInputElement, startingDate: MatDatepicker<any>, endingDate: MatDatepicker<any>){
+    /*console.log(contractId.value);
     console.log(markupValue.value);
     let contractStarter = startingDate.datepickerInput.getStartValue();
     let contractEnder = endingDate.datepickerInput.getStartValue();
@@ -23,6 +24,9 @@ export class ContractInputComponent implements OnInit {
     console.log("Starting date Date: "+contractStarter?.getDate());
     console.log("Starting date Year: "+contractEnder?.getFullYear());
     console.log("Starting date Month: "+(contractEnder?.getMonth()));
-    console.log("Starting date Date: "+contractEnder?.getDate());
+    console.log("Starting date Date: "+contractEnder?.getDate());*/
+
+    let contract = new Contract(contractId.value, parseInt(markupValue.value), startingDate.datepickerInput, endingDate.datepickerInput)
+    console.log(contract.contractId, contract.markupValue, contract.contractStartingDate.getStartValue(), contract.contractEndingDate.getStartValue());
   }
 }
