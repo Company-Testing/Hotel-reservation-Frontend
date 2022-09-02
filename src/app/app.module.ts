@@ -12,6 +12,7 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from "@angular/forms";
+import {ContractService} from "./service/contract.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import {FormsModule} from "@angular/forms";
     MatButtonModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ContractService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

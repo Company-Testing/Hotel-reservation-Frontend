@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDatepicker} from "@angular/material/datepicker";
 import {Contract} from "../dto/Contract";
+import {ContractService} from "../service/contract.service";
 
 @Component({
   selector: 'app-contract-input',
@@ -9,7 +10,7 @@ import {Contract} from "../dto/Contract";
 })
 export class ContractInputComponent implements OnInit {
 
-  constructor() { }
+  constructor(private contractService: ContractService  ) { }
 
   ngOnInit(): void {
   }
