@@ -25,5 +25,4 @@ export class ContractInputComponent implements OnInit {
     console.log("Starting date Month: "+(contractEnder?.getMonth()));
     console.log("Starting date Date: "+contractEnder?.getDate());
   }
-
 }
