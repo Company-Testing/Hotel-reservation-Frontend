@@ -1,10 +1,10 @@
 <hr>
 <div class="flex space-x-40 align-items-center">
-  <h3 class="p-1 m-0">CON001</h3>
-  <h3 class="p-1 m-0">H001</h3>
-  <h3 class="p-1 m-0">2022-08-23</h3>
-  <h3 class="p-1 m-0">2023-10-28</h3>
-  <h3 class="p-1 m-0">25.32</h3>
+  <h3 class="p-1 m-0">{{contract.id}}</h3>
+  <h3 class="p-1 m-0">{{contract.hotelId}}</h3>
+  <h3 class="p-1 m-0">{{contract.contractCreatedDate.getFullYear()}}-{{contract.contractCreatedDate.getMonth()}}-{{contract.contractCreatedDate.getDate()}}</h3>
+  <h3 class="p-1 m-0">{{contract.contractEndDate.getFullYear()}}-{{contract.contractEndDate.getMonth()}}-{{contract.contractEndDate.getDate()}}</h3>
+  <h3 class="p-1 m-0 pl-10">{{contract.markUpValue}}</h3>
   <div class="flex space-x-6 align-items-center">
   <mat-icon class="text-2xl  hover:text-red-500">delete</mat-icon>
   <mat-icon class="text-2xl  hover:text-blue-500">edit</mat-icon>
