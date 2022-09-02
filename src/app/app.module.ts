@@ -13,12 +13,14 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from "@angular/forms";
 import {ContractService} from "./service/contract.service";
+import { ContractComponent } from './contract/contract.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    ContractInputComponent
+    ContractInputComponent,
+    ContractComponent
   ],
   imports: [
     BrowserModule,
