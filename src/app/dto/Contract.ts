@@ -1,10 +1,11 @@
-import {MatDatepickerControl} from "@angular/material/datepicker/datepicker-base";
 
-export class Contract{
-  constructor(public contractId: string,
-              public hotelId : string,
-              public markupValue: number,
-              public contractStartingDate: MatDatepickerControl<Date>,
-              public contractEndingDate: MatDatepickerControl<Date>) {
+export class Contract {
+  constructor(public id: string,
+              public hotelId: string,
+              public contractCreatedDate: Date,
+              public contractEndDate: Date,
+              public markUpValue: number) {
   }
+
+
 }

@@ -15,7 +15,7 @@ export class ContractInputComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addContract(contractId: HTMLInputElement,hotelId: HTMLInputElement,  markupValue: HTMLInputElement, startingDate: MatDatepicker<any>, endingDate: MatDatepicker<any>){
+  addContract(contractId: HTMLInputElement,hotelId: HTMLInputElement,  markupValue: HTMLInputElement, startingDate: MatDatepicker<any>, endingDate: MatDatepicker<any>):void{
     /*console.log(contractId.value);
     console.log(markupValue.value);
     let contractStarter = startingDate.datepickerInput.getStartValue();
@@ -27,7 +27,17 @@ export class ContractInputComponent implements OnInit {
     console.log("Starting date Month: "+(contractEnder?.getMonth()));
     console.log("Starting date Date: "+contractEnder?.getDate());*/
 
-    let contract = new Contract(contractId.value,hotelId.value, parseInt(markupValue.value), startingDate.datepickerInput, endingDate.datepickerInput)
-    console.log(contract.contractId,contract.hotelId, contract.markupValue, contract.contractStartingDate.getStartValue(), contract.contractEndingDate.getStartValue());
+    let contract = new Contract(contractId.value,hotelId.value, startingDate.datepickerInput.getStartValue(), endingDate.datepickerInput.getStartValue(), parseInt(markupValue.value))
+    /*console.log(contract.id,contract.hotelId, contract.markUpValue, contract.contractCreatedDate, contract.contractEndDate);*/
+
+    this.contractService.saveContract(contract).subscribe({
+      next:value => {
+        hotelId.value="";
+        contractId.value = "";
+        startingDate.select(undefined);
+        endingDate.select(undefined);
+        markupValue.value="";
+      }
+    })
   }
 }

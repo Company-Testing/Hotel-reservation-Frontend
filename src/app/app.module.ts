@@ -14,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from "@angular/forms";
 import {ContractService} from "./service/contract.service";
 import { ContractComponent } from './contract/contract.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ContractComponent } from './contract/contract.component';
     MatNativeDateModule,
     MatInputModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [ContractService],
   bootstrap: [AppComponent]
