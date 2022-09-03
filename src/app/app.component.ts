@@ -1,6 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Contract} from "./dto/Contract";
 import {ContractService} from "./service/contract.service";
+import {ContractInputComponent} from "./contract-input/contract-input.component";
+import {MatDatepicker} from "@angular/material/datepicker";
+import {FormControl} from "@angular/forms";
 
 
 @Component({
@@ -12,6 +15,8 @@ export class AppComponent implements OnInit{
 
   contracts: Array<Contract> = [];
   selectedContract!:Contract;
+
+  @ViewChild('contractInputComponent') contractInputComponent!: ContractInputComponent;
 
   constructor(private contractService: ContractService) {
   }
@@ -28,6 +33,8 @@ export class AppComponent implements OnInit{
 
   receiveContract($event: Contract) {
     this.selectedContract = $event;
-
+    this.contractInputComponent.contractId.nativeElement.value = this.selectedContract.id;
+    this.contractInputComponent.hotelId.nativeElement.value = this.selectedContract.hotelId;
+    this.contractInputComponent.markupValue.nativeElement.value = this.selectedContract.markUpValue;
   }
 }

@@ -2,6 +2,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
 import {MatDatepicker} from "@angular/material/datepicker";
 import {Contract} from "../dto/Contract";
 import {ContractService} from "../service/contract.service";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-contract-input',
@@ -16,8 +17,9 @@ export class ContractInputComponent implements OnInit {
   @ViewChild('contractId') contractId! : ElementRef;
   @ViewChild('hotelId') hotelId! : ElementRef;
   @ViewChild('markupValue') markupValue! : ElementRef;
-  @ViewChild('startingDate') startingDate! : ElementRef;
-  @ViewChild('endingDate') endingDate! : ElementRef;
+  @ViewChild('startingDate') startingDate! : MatDatepicker<Date>;
+  @ViewChild('endingDate') endingDate! : MatDatepicker<Date>;
+  @ViewChild('manipulateButton') manipulateButton! : MatButton;
 
   constructor(private contractService: ContractService) { }
 
@@ -50,15 +52,4 @@ export class ContractInputComponent implements OnInit {
       }
     })
   }
-
-  fillUpdatedContractData(){
-    if(this.selectedContract !== null){
-      this.contractId.nativeElement.value = this.selectedContract.id;
-      this.hotelId.nativeElement.value = this.selectedContract.hotelId;
-      this.markupValue.nativeElement.value = this.selectedContract.markUpValue;
-      this.startingDate.nativeElement.value = this.selectedContract.contractCreatedDate;
-      this.endingDate.nativeElement.value = this.selectedContract.contractEndDate;
-    }
-  }
-
 }
