@@ -27,7 +27,7 @@ export class ContractInputComponent implements OnInit {
     console.log("Starting date Month: "+(contractEnder?.getMonth()));
     console.log("Starting date Date: "+contractEnder?.getDate());*/
 
-    let contract = new Contract(contractId.value,hotelId.value, startingDate.datepickerInput.getStartValue(), endingDate.datepickerInput.getStartValue(), parseInt(markupValue.value))
+    let contract = new Contract(contractId.value,hotelId.value, startingDate.datepickerInput.getStartValue(), endingDate.datepickerInput.getStartValue(), parseFloat(markupValue.value))
     /*console.log(contract.id,contract.hotelId, contract.markUpValue, contract.contractCreatedDate, contract.contractEndDate);*/
 
     this.contractService.saveContract(contract).subscribe({

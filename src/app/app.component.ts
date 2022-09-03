@@ -16,10 +16,13 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    let contractOne = new Contract("CON001", "H002", new Date(2022,1),new Date(2022,2),25.03);
+    /*let contractOne = new Contract("CON001", "H002", new Date(2022,1),new Date(2022,2),25.03);
     let contractTwo = new Contract("CON002", "H002", new Date(2023,1),new Date(2045,2),15.53);
     this.contracts.push(contractOne);
-    this.contracts.push(contractTwo);
+    this.contracts.push(contractTwo);*/
+    this.contractService.getAllContracts().subscribe({
+      next:contracts=>this.contracts = contracts
+    });
   }
 
 

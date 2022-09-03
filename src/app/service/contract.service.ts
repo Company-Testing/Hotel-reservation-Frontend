@@ -14,6 +14,7 @@ export class ContractService {
   constructor(@Inject(HttpClient)private httpService : HttpClient) { }
 
   saveContract(contract: ContractDTO):Observable<boolean>{
+    console.log(contract.markUpValue);
     return this.httpService.post<ContractDTO>(this.CONTRACT_API_ENDPOINT, contract)
       .pipe(map(n =>{
         this.contracts.push(n);
@@ -21,4 +22,9 @@ export class ContractService {
         return true;
       }))
   };
+
+  getAllContracts():Observable<Array<ContractDTO>>{
+    return this.httpService.get<Array<ContractDTO>>(this.CONTRACT_API_ENDPOINT).pipe(map(contracts=>this.contracts = contracts));
+  }
+
 }
