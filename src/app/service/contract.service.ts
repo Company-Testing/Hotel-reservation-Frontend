@@ -11,10 +11,13 @@ export class ContractService {
   private subject = new Subject<Array<ContractDTO>>();
 
 
-  constructor(@Inject(HttpClient)private httpService : HttpClient) { }
+  constructor(@Inject(HttpClient)private httpService : HttpClient) {
+    // if(this.contracts.length === 0){
+    //   this.httpService.get<Array<ContractDTO>>(this.CONTRACT_API_ENDPOINT).pipe(map(contracts=>this.contracts = contracts));
+    // }
+  }
 
   saveContract(contract: ContractDTO):Observable<boolean>{
-    console.log(contract.markUpValue);
     return this.httpService.post<ContractDTO>(this.CONTRACT_API_ENDPOINT, contract)
       .pipe(map(n =>{
         this.contracts.push(n);
@@ -25,6 +28,7 @@ export class ContractService {
 
   getAllContracts():Observable<Array<ContractDTO>>{
     return this.httpService.get<Array<ContractDTO>>(this.CONTRACT_API_ENDPOINT).pipe(map(contracts=>this.contracts = contracts));
+    // return this.subject.asObservable();
   }
 
 
