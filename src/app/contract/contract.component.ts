@@ -20,7 +20,16 @@ export class ContractComponent implements OnInit {
   deleteContract() {
     this.contractService.deleteContract(this.contract).subscribe({
       next:value => {
-        console.log("Successfully deleted");
+        console.log("Successfully Delete");
+      }
+    })
+  }
+
+  updateContract() {
+
+    this.contractService.updateContract(this.contract).subscribe({
+      next:value=>{
+        console.log("Successfully Updated");
       }
     })
   }

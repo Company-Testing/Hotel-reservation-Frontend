@@ -41,4 +41,14 @@ export class ContractService {
     }))
   }
 
+  updateContract(contract: ContractDTO):Observable<boolean>{
+    return this.httpService.patch<ContractDTO>(`${this.CONTRACT_API_ENDPOINT}/${contract.id}`, contract)
+      .pipe(map(n =>{
+      this.contracts.push(n);
+      this.subject.next(this.contracts);
+      return true;
+    }))
+  }
+
+
 }
