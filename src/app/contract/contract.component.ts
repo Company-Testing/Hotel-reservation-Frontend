@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Contract} from "../dto/Contract";
+import {ContractService} from "../service/contract.service";
 
 @Component({
   selector: 'app-contract',
@@ -11,9 +12,16 @@ export class ContractComponent implements OnInit {
   @Input()
   contract!:Contract;
 
-  constructor() { }
+  constructor(private contractService: ContractService) { }
 
   ngOnInit(): void {
   }
 
+  deleteContract() {
+    this.contractService.deleteContract(this.contract).subscribe({
+      next:value => {
+        console.log("Successfully deleted");
+      }
+    })
+  }
 }

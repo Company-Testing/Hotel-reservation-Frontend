@@ -27,4 +27,14 @@ export class ContractService {
     return this.httpService.get<Array<ContractDTO>>(this.CONTRACT_API_ENDPOINT).pipe(map(contracts=>this.contracts = contracts));
   }
 
+
+  deleteContract(contract: ContractDTO):Observable<boolean>{
+    return this.httpService.delete(`${this.CONTRACT_API_ENDPOINT}/${contract.id}`).pipe(map(n=>{
+      let index = this.contracts.indexOf(contract);
+      this.contracts.splice(index,1);
+      this.subject.next(this.contracts);
+      return true;
+    }))
+  }
+
 }
