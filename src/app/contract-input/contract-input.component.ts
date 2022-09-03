@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {MatDatepicker} from "@angular/material/datepicker";
 import {Contract} from "../dto/Contract";
 import {ContractService} from "../service/contract.service";
@@ -10,9 +10,19 @@ import {ContractService} from "../service/contract.service";
 })
 export class ContractInputComponent implements OnInit {
 
-  constructor(private contractService: ContractService  ) { }
+  @Input()
+  selectedContract!: Contract;
+
+  @ViewChild('contractId') contractId! : ElementRef;
+  @ViewChild('hotelId') hotelId! : ElementRef;
+  @ViewChild('markupValue') markupValue! : ElementRef;
+  @ViewChild('startingDate') startingDate! : ElementRef;
+  @ViewChild('endingDate') endingDate! : ElementRef;
+
+  constructor(private contractService: ContractService) { }
 
   ngOnInit(): void {
+
   }
 
   addContract(contractId: HTMLInputElement,hotelId: HTMLInputElement,  markupValue: HTMLInputElement, startingDate: MatDatepicker<any>, endingDate: MatDatepicker<any>):void{
@@ -40,4 +50,15 @@ export class ContractInputComponent implements OnInit {
       }
     })
   }
+
+  fillUpdatedContractData(){
+    if(this.selectedContract !== null){
+      this.contractId.nativeElement.value = this.selectedContract.id;
+      this.hotelId.nativeElement.value = this.selectedContract.hotelId;
+      this.markupValue.nativeElement.value = this.selectedContract.markUpValue;
+      this.startingDate.nativeElement.value = this.selectedContract.contractCreatedDate;
+      this.endingDate.nativeElement.value = this.selectedContract.contractEndDate;
+    }
+  }
+
 }

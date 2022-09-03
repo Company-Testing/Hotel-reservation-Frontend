@@ -16,6 +16,7 @@ import {ContractService} from "./service/contract.service";
 import { ContractComponent } from './contract/contract.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MatIconModule} from "@angular/material/icon";
+import {TransferService} from "./service/transfer.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import {MatIconModule} from "@angular/material/icon";
     HttpClientModule,
     MatIconModule
   ],
-  providers: [ContractService],
+  providers: [ContractService, TransferService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

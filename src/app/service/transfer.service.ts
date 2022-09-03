@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+import {Contract as ContractDTO} from "../dto/Contract";
+import {Observable} from "rxjs";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class TransferService {
 
-  constructor() { }
+  constructor() {
+  }
 }

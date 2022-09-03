@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {Contract} from "./dto/Contract";
 import {ContractService} from "./service/contract.service";
+
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,8 @@ import {ContractService} from "./service/contract.service";
 })
 export class AppComponent implements OnInit{
 
-
   contracts: Array<Contract> = [];
+  selectedContract!:Contract;
 
   constructor(private contractService: ContractService) {
   }
@@ -25,5 +26,8 @@ export class AppComponent implements OnInit{
     });
   }
 
+  receiveContract($event: Contract) {
+    this.selectedContract = $event;
 
+  }
 }

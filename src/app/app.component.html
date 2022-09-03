@@ -1,6 +1,6 @@
 <header >
   <h1 id="headerTopic" class="text-center text-white bg-gray-500">Contract details forum</h1>
-  <app-contract-input></app-contract-input>
+  <app-contract-input [selectedContract]="selectedContract" ></app-contract-input>
 </header>
 
 <main>
@@ -13,7 +13,7 @@
     <h1 class="p-1">Markup value</h1>
     <h1 class="p-1">Options</h1>
   </div>
-  <app-contract *ngFor="let contract of contracts" [contract]="contract"></app-contract>
+  <app-contract *ngFor="let contract of contracts" [contract]="contract"   (contractEvent)="receiveContract($event)"></app-contract>
 
 </main>
 
